@@ -1,65 +1,43 @@
-// -------------------------------------------------------Función de la compra
+// -------------------------------------------------------Bienvenida------------------------------------------------------
 
-function laCompra () {
-    let producto = parseInt(prompt("Escogé un Producto: 1.Planner mensual 2.Planner semanal 3.Planner intensivo 4.Set de stickers pastel 5.Set de stickers fotográficos 6.Washi tape pack 0.Ninguno"
-    )
-  )
-  let totalCompra = 0
-  let seguirComprando = true
-  let decision
+let usuario = prompt ("¡Hola! ¿Cómo te llamás?")
 
-  while (seguirComprando === true) {
-    if (producto === 1) {
-        totalCompra = totalCompra + 1500
-    } else if (producto === 2) {
-        totalCompra = totalCompra + 2500
-    } else if (producto === 3) {
-        totalCompra = totalCompra + 3500
-    } else if (producto === 4) {
-        totalCompra = totalCompra + 750
-    } else if (producto === 5) {
-        totalCompra = totalCompra + 800
-    } else if (producto === 6) {
-        totalCompra = totalCompra + 950
-    } else if (producto === 0) {
-        totalCompra = totalCompra + 0
-    } else {
-        producto = parseInt(prompt("Ese producto no está habilitad. Escogé otro producto 1.Planner mensual 2.Planner semanal 3.Planner intensivo 4.Set de stickers pastel 5.Set de stickers fotográficos 6.Washi tape pack"))
-    continue
-  }
+alert ("Te damos la bienvenida a Cora Misura Digital Stationery, "+usuario)
 
-    decision = parseInt(prompt("Querés seguir comprando? 1.Si - 2.No"))
-    if (decision === 1) {
-      producto = parseInt(prompt("Escogé un Producto: 1.Planner mensual 2.Planner semanal 3.Planner intensivo 4.Set de stickers pastel 5.Set de stickers fotográficos 6.Washi tape pack"))
-    } else {
-      seguirComprando = false
-    }
-  }  
-    alert(`El total de tu compra es $${totalCompra}`)
-    
-    
-    if (totalCompra === 0) {
-        alert ("Gracias por pasar. ¡Esperamos que vuelvas pronto!")
-    }else {
-        alert ("Gracias por tu compra. Esperamos que la disfrutes y vuelvas pronto.")}
-}
+let iniciarCompra = parseInt (prompt("¿Deseás iniciar una compra? 1.Sí. 2.No"))
 
 
-// -------------------------------------------------------Bienvenida
-
-let nombre = prompt ("¡Hola! ¿Cómo te llamás?")
-
-alert ("Te damos la bienvenida a Cora Misura Digital Stationery, "+nombre)
-
-let queHacer = parseInt (prompt("¿Qué te gustaría hacer? 1.Quiero ver los precios. 2. Quiero comprar"))
-if (queHacer === 1) {
-    alert ("Los valores son: 1.Planner mensual $1500; 2.Planner semanal $2500; 3.Planner intensivo $3500; 4.Set de stickers pastel $750; 5.Set de stickers fotográficos $800; 6.Washi tape pack $900")
-    let queHacer2 = parseInt (prompt ("¿Querés comprar? 1.No 2.Sí"))
-        if (queHacer2 ===1) {
-        alert ("Gracias por pasar. Esperamos verte pronto.")
-        }else {
-        laCompra();
+// -------------------------------------------------------Compra ------------------------------------------------------
+if (iniciarCompra === 1) {
+    class Producto {
+        constructor (nombre,precio) {
+            this.nombre = nombre;
+            this.precio = precio
         }
-}else {
-    laCompra();
+    }
+    
+    const productos = [];
+    productos.push(new Producto("Planner mensual",1500));
+    productos.push(new Producto("Planner semanal",2500));
+    productos.push(new Producto("Planner intensivo",3500));
+    productos.push(new Producto("Stickers pastel",750));
+    productos.push(new Producto("Washi tape pack",900));
+    
+    const carrito =[];
+    
+    for (const compra of productos) {
+        const decision = parseInt (prompt ("El producto es "+compra.nombre+" y su precio es "+compra.precio+"¿Cuántos ítems de este producto deseás llevar?"))
+        const totalProducto = (compra.precio * decision)
+        carrito.push(totalProducto)
+      }
+    
+    const total = carrito.reduce((acumulador, elemento) => acumulador + elemento, 0)
+    const finalizarCompra = parseInt(prompt("El total de tu compra es "+total+". ¿Deseás llevarlo? 1. Sí. 2. No"))
+        if (finalizarCompra ===1) {
+            alert ("Muchas gracias por tu compra, "+usuario+". Esperamos verte pronto de nuevo por acá.")
+            } else {
+            alert ("Muchas gracias por pasar, "+usuario+" Esperamos verte por acá de nuevo muy pronto.")
+      }
+} else {
+    alert ("Muchas gracias por pasar, "+usuario+" Esperamos verte por acá de nuevo muy pronto.")
 }

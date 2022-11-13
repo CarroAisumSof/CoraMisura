@@ -1,0 +1,16 @@
+.carousel-caption {
+     color: #f82649;
+  }
+
+
+  .btn-outline-primary {
+    border-color: #ff647f;
+    --bs-btn-color: #ff647f;
+    
+  }
+
+  .btn:hover {
+    color: #fff;
+    background-color: #ff647f;
+    border-color: #ff647f;
+  }
