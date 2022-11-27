@@ -70,68 +70,54 @@
     <h1 class="display-4 fw-normal">Planners</h1>
     <p class="fs-5 text-muted">Conocé nuestros planners y qué tiene cada uno para elegir el que mejor se ajusta a tus necesidades.</p>
   </div>
-<div class="row row-cols-1 row-cols-md-3 mb-3 text-center m-5">
-  <div class="col">
-    <div class="card mb-4 rounded-3 shadow-sm">
-      <div class="card-header py-3">
-        <h4 class="my-0 fw-normal">Planner mensual</h4>
-      </div>
-      <div class= "mt-4">
-        <img src="./images/photo-1612599316791-451087c7fe15.avif" width="350px" height="auto">
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$1500</h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>Vista mensual</li>
-          <li>Habit tracker</li>
-          <li>Reading log</li>
-          <li>Menú interactivo</li>
-        </ul>
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Ver más</button>
-      </div>
-    </div>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3 text-center m-5" id="containerCards"></div>
+</div>
+
+<!-------------------------------------------------------Carrito -------------------------------------------------------------------------------------->
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3 text-center m-5">
+  <div class="col-12 col-lg-4">
   </div>
-  <div class="col">
-    <div class="card mb-4 rounded-3 shadow-sm">
-      <div class="card-header py-3">
-        <h4 class="my-0 fw-normal">Planner semanal</h4>
-      </div>
-      <div class= "mt-4">
-        <img src="./images/photo-1612599316791-451087c7fe15.avif" width="350px" height="auto">
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$2500</h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>Vista semanal y mensual</li>
-          <li>Habit tracker</li>
-          <li>Reading log</li>
-          <li>Menú interactivo</li>
-        </ul>
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Ver más</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card mb-4 rounded-3 shadow-sm">
-      <div class="card-header py-3">
-        <h4 class="my-0 fw-normal">Planner Intensivo</h4>
-      </div>
-      <div class= "mt-4">
-        <img src="./images/photo-1612599316791-451087c7fe15.avif" width="350px" height="auto">
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$3500</h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>Vista diaria, semanal y mensual</li>
-          <li>Habit tracker</li>
-          <li>Reading log</li>
-          <li>Menú interactivo</li>
-        </ul>
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Ver más</button>
-      </div>
-    </div>
+  <div class="col-md-5 col-lg-4 order-md-last">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-primary">Carrito</span>
+      <span class="badge bg-primary rounded-pill"></span>
+    </h4>
+    <ul class="list-group mb-3 " id="carrito"></ul>
+    <ul class="list-group mb-3 ">        
+      <li class="list-group-i605
+      . 89mtem d-flex justify-content-between" >
+      <span class="bold"id="totalCompra">Total $0</span>
+    </li>
+    </ul>
   </div>
 </div>
+<!-- -----------------------------------------------------------Finalizar compra --------------------------------------->
+<div class="row row-cols-1 mb-3 text-center m-5" id="finalizarCompra">
+</div>
+
+<form class="row row-cols-3 mb-3 text-center m-5">
+  <div class="col-2 col-md-3"></div>
+  <div class="col-10 col-lg-6">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-primary">Datos de envío</span>
+      <span class="badge bg-primary rounded-pill"></span>
+    </h4>
+    <div class="mb-3">
+      <label for="usuarioNombre" class="form-label">Nombre completo</label>
+      <input class="form-control" id="usuarioNombre">
+    </div>
+    <div class="mb-3">
+      <label for="usuarioDireccion" class="form-label">Dirección</label>
+      <input class="form-control" id="usuarioDireccion">
+    </div>
+    <div class="mb-3">
+      <label for="usuarioEmail" class="form-label">Email</label>
+      <input class="form-control" id="usuarioEmail">
+    </div>
+    <button type="button"class="btn btn-primary" id="botonEnviar">Enviar</button>
+  </div>
+</form>
 
 
 
