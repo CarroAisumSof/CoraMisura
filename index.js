@@ -15,7 +15,6 @@ class Producto {
         productos.push(new Producto("Planner intensivo",3500,"./images/photo-1612599316791-451087c7fe15.avif",3,1,0));
         productos.push(new Producto("Stickers pastel",750,"./images/photo-1612599316791-451087c7fe15.avif",4,1,0));
         productos.push(new Producto("Washi tape pack",900,"./images/photo-1612599316791-451087c7fe15.avif",5,1,0));
-
         const carrito =[];
         const valores =[];
 //------------------------------------------------------------- CARDS -------------------------------------------------------
@@ -67,20 +66,29 @@ const agregarAlCarrito = (id) => {
 //------------------------------------------------------------- CARRITO ------------------------------------------------------------------------
 function actualizarCarrito() {
     let actualizar = '';
-    carrito.forEach((carrito) => {
+    carrito.forEach((element) => {
         actualizar += `
         <li class="list-group-item d-flex justify-content-between lh-sm">
         <div>
-          <h6 class="my-0">${carrito.nombre}</h6>
-          <small class="text-muted">Cantidad: ${carrito.cantidad}</small>
+          <h6 class="my-0">${element.nombre}</h6>
+          <small class="text-muted">Cantidad: ${element.cantidad}</small>
         </div>
-        <span class="text-muted">$${carrito.precio*carrito.cantidad}</span>
+        <span class="text-muted">$${element.precio*element.cantidad}</span>
+        <button type="button" class="w-20 btn btn-outline-primary" onClick = "eliminarDelCarrito(${element.id})">x</button>
         </li>`;
     });
     contenedorCarrito.innerHTML = actualizar;
     totalFinal();
+  }
 
-}
+//------------------------------------------------------------- EVENTO - ELIMINAR DEL CARRITO -------------------------------------------------------|
+const eliminarDelCarrito = (id) => {
+  const element = carrito.find((element) => element.id === id);
+  carrito.splice(carrito.indexOf(element), 1);
+  actualizarCarrito();
+};
+
+//--------------------------------------------------------------------- TOTAL COMPRA -------------------------------------------------------
 
 const totalFinal = () => {
     let total = 0
