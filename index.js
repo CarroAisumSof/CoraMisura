@@ -10,11 +10,13 @@ class Producto {
     }
 }
         const productos = [];
-        productos.push(new Producto("Planner mensual",1500,"./images/photo-1612599316791-451087c7fe15.avif",1,1,0));
-        productos.push(new Producto("Planner semanal",2500,"./images/photo-1612599316791-451087c7fe15.avif",2,1,0));
-        productos.push(new Producto("Planner intensivo",3500,"./images/photo-1612599316791-451087c7fe15.avif",3,1,0));
-        productos.push(new Producto("Stickers pastel",750,"./images/photo-1612599316791-451087c7fe15.avif",4,1,0));
-        productos.push(new Producto("Washi tape pack",900,"./images/photo-1612599316791-451087c7fe15.avif",5,1,0));
+        productos.push(new Producto("Planner mensual",1500,"./images/productos/planner-mensual.png",1,1,0));
+        productos.push(new Producto("Planner semanal",2500,"./images/productos/planner-semanal.png",2,1,0));
+        productos.push(new Producto("Planner intensivo",3500,"./images/productos/planner-intensivo.png",3,1,0));
+        productos.push(new Producto("Stickers pastel",1000,"./images/productos/stickers.png",4,1,0));
+        productos.push(new Producto("Post-it pack",900,"./images/productos/post-it.png",5,1,0));
+        productos.push(new Producto("Washi tape pack",800,"./images/productos/washi-tapes.png",6,1,0));
+
         const carrito =[];
         const valores =[];
 //------------------------------------------------------------- CARDS -------------------------------------------------------
@@ -27,13 +29,13 @@ productos.forEach((productos) => {
         <div class="col mb-4">
         <div class="card h-100 mb-4 rounded-3 shadow-sm">
         <div class="card-header py-3">
-        <h4 class="my-0 fw-normal" id="producto1">${productos.nombre}</h4>
+        <h4 class="my-0 fw-normal mainFont" id="producto1">${productos.nombre}</h4>
         </div>
         <div class= "mt-4">
         <img src="${productos.thumbnail}" width="90%" height="auto"></img>
         </div>
         <div class="card-body">
-        <h1 class="card-title pricing-card-title" id="producto1Precio">$ ${productos.precio}</h1>
+        <h1 class="card-title pricing-card-title mainFont" id="producto1Precio">$ ${productos.precio}</h1>
         <button type="button" class="w-100 btn btn-lg btn-outline-primary" id="boton${productos.id}">Agregar al carrito</button>
         </div>
         </div>
@@ -113,7 +115,7 @@ realizarCompra.addEventListener ("click",() => {
   <div class="col-2 col-md-3"></div>
   <div class="col-10 col-lg-6">
     <h4 class="d-flex justify-content-between align-items-center mb-3">
-      <span class="text-primary">Datos de envío</span>
+      <span class="text-primary mainFont">Datos de envío</span>
       <span class="badge bg-primary rounded-pill"></span>
     </h4>
     <div class="mb-3">
@@ -173,11 +175,11 @@ realizarCompra.addEventListener ("click",() => {
             'error'
             )
         } else if (usuarioNombre.value.length === 0) {
-          Swal.fire(
-            'El formulario está incompleto',
-            'Por favor asegurate de que todos los campos estén completos.',
-            'error'
-            )
+            Swal.fire(
+              'El formulario está incompleto',
+              'Por favor asegurate de completar todos los campos',
+              'error'
+              )
         }else if (usuarioApellido.value.length === 0) {
           Swal.fire(
             'El formulario está incompleto',

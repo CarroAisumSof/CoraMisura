@@ -1,6 +1,15 @@
-.carousel-caption {
-     color: #f82649;
-  }
+@font-face {
+  font-family: questrial;
+  src: url(./fonts/Questrial-Regular.ttf);
+}
+
+.mainFont {
+  font-family: questrial;
+}
+
+.homeHeader {
+  letter-spacing: 5px;
+}
 
 
   .btn-outline-primary {
@@ -47,4 +56,18 @@
   .text-primary {
   --bs-text-opacity: 1;
   color:#ff647f  !important;
+}
+
+.card {
+  border-color: #fe4564;
+  border-width: 3px;
+  border-radius: 3px;
+}
+
+.card-header {
+  background-color: #FFCDD7;
+}
+
+.containerFooter {
+  background-color: #FFCDD7;
 }
