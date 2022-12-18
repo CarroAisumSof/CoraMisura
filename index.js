@@ -1,54 +1,43 @@
 //------------------------------------------------------------- Arrays-------------------------------------------------------
-class Producto {
-    constructor (nombre,precio,thumbnail,id,cantidad,totalProducto) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.thumbnail = thumbnail;
-        this.id = id;
-        this.cantidad =cantidad;
-        this.totalProducto = totalProducto;
-    }
-}
-        const productos = [];
-        productos.push(new Producto("Planner mensual",1500,"./images/productos/planner-mensual.png",1,1,0));
-        productos.push(new Producto("Planner semanal",2500,"./images/productos/planner-semanal.png",2,1,0));
-        productos.push(new Producto("Planner intensivo",3500,"./images/productos/planner-intensivo.png",3,1,0));
-        productos.push(new Producto("Stickers pastel",1000,"./images/productos/stickers.png",4,1,0));
-        productos.push(new Producto("Post-it pack",900,"./images/productos/post-it.png",5,1,0));
-        productos.push(new Producto("Washi tape pack",800,"./images/productos/washi-tapes.png",6,1,0));
-
         const carrito =[];
         const valores =[];
 //------------------------------------------------------------- CARDS -------------------------------------------------------
 
 const containerCards = document.getElementById ("containerCards");
 
-productos.forEach((productos) => {
-    const productoCard = document.createElement("div");
-    productoCard.innerHTML =`
-        <div class="col mb-4">
-        <div class="card h-100 mb-4 rounded-3 shadow-sm">
-        <div class="card-header py-3">
-        <h4 class="my-0 fw-normal mainFont" id="producto1">${productos.nombre}</h4>
-        </div>
-        <div class= "mt-4">
-        <img src="${productos.thumbnail}" width="90%" height="auto"></img>
-        </div>
-        <div class="card-body">
-        <h1 class="card-title pricing-card-title mainFont" id="producto1Precio">$ ${productos.precio}</h1>
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary" id="boton${productos.id}">Agregar al carrito</button>
-        </div>
-        </div>
-        </div>`;
+fetch("/productos/productos.JSON")
+      .then((res) => res.json())
+      .then ( (data) => {
+          data.forEach((productos) => {
+            const productoCard = document.createElement("div");
+            productoCard.innerHTML =`
+                <div class="col mb-4">
+                <div class="card h-100 mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                <h4 class="my-0 fw-normal mainFont" id="producto1">${productos.nombre}</h4>
+                </div>
+                <div class= "mt-4">
+                <img src="${productos.thumbnail}" width="90%" height="auto"></img>
+                </div>
+                <div class="card-body">
+                <h1 class="card-title pricing-card-title mainFont" id="producto1Precio">$ ${productos.precio}</h1>
+                <button type="button" class="w-100 btn btn-lg btn-outline-primary" id="boton${productos.id}">Agregar al carrito</button>
+                </div>
+                </div>
+                </div>`;
+        
+                containerCards.append(productoCard)
+        
+                const boton = document.getElementById(`boton${productos.id}`);
+                boton.addEventListener('click', () => {
+                  agregarAlCarrito(productos.id);
+                });
+            })
+          localStorage.setItem ("productos" , JSON.stringify (data))
+        })
 
-        containerCards.append(productoCard)
 
-        const boton = document.getElementById(`boton${productos.id}`);
-        boton.addEventListener('click', () => {
-          agregarAlCarrito(productos.id);
-        });
-})
-
+let productos = JSON.parse(localStorage.getItem("productos"))
 const contenedorCarrito = document.getElementById('carrito');
 //------------------------------------------------------------- EVENTO - AGREGAR AL CARRITO -------------------------------------------------------
 

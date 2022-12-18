@@ -2,7 +2,10 @@
   font-family: questrial;
   src: url(./fonts/Questrial-Regular.ttf);
 }
-
+.bg-light {
+  --bs-bg-opacity: 1;
+  background-color: white !important;
+}
 .mainFont {
   font-family: questrial;
 }
