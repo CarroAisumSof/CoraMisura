@@ -1,9 +1,9 @@
-[
+
+ [  
     {"nombre": "Planner mensual","precio": 1500,"thumbnail":"../images/productos/planner-mensual.png","id":1,"cantidad":1,"totalProducto":0},
     {"nombre": "Planner semanal","precio":2500,"thumbnail":"../images/productos/planner-semanal.png","id":2,"cantidad":1,"totalProducto":0},
     {"nombre": "Planner intensivo","precio":3500,"thumbnail":"../images/productos/planner-intensivo.png","id":3,"cantidad":1,"totalProducto":0},
     {"nombre": "Stickers pastel","precio":1000,"thumbnail":"../images/productos/stickers.png","id":4,"cantidad":1,"totalProducto":0},
     {"nombre": "Post-it pack","precio":900,"thumbnail":"../images/productos/post-it.png","id":5,"cantidad":1,"totalProducto":0},
-    {"nombre": "Washi tape pack pack","precio":800,"thumbnail":"../images/productos/washi-tapes.png","id":6,"cantidad":1,"totalProducto":0}
-
+    {"nombre": "Washi tape pack pack","precio":800,"thumbnail":"../images/productos/washi-tapes.png","id":6,"cantidad":1,"totalProducto":0} 
 ]
