@@ -5,7 +5,7 @@
 
 const containerCards = document.getElementById ("containerCards");
 
-fetch("../productos/productos.json")
+fetch("./productos.json")
       .then((res) => res.json())
       .then ( (data) => {
           data.forEach((productos) => {
